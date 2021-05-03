@@ -1,14 +1,7 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Artist</th>
-    <th>Genre</th>
-  </tr>
-  <tr>
-    <td><%= @song.name %></td>
-    <td><%= @song.artist %></td>
-    <td><%= @song.genre %></td>
-  </tr>
-<table>
-
-
+<h2> <%= @song.name %> </h2>
+<a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %></a>
+<br>
+<!-- # @song.genres is nested, so you need to .each do-->
+<% @song.genres.each do |genre| %> 
+    <a href="/genres/<%= genre.slug %>"> <%= genre.name %> </a>
+<% end %>
